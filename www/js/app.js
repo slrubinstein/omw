@@ -32,10 +32,20 @@ var app = angular.module('omw', ['ionic'])
     views: {
       'tab-home': {
         templateUrl: 'home/home.html',
-        controller: 'HomeCtrl'
+        controller: 'HomeCtrl as home'
       }
     }
   })
+
+    .state('tab.omw-detail', {
+      url: '/home/:omwId',
+      views: {
+        'tab-home': {
+          templateUrl: 'home/omw-detail/omw-detail.html',
+          controller: 'OmwDetailCtrl as omw'
+        }
+      }
+    })
 
   .state('tab.map', {
       url: '/map',
@@ -46,15 +56,6 @@ var app = angular.module('omw', ['ionic'])
         }
       }
     })
-    // .state('tab.chat-detail', {
-    //   url: '/chats/:chatId',
-    //   views: {
-    //     'tab-chats': {
-    //       templateUrl: 'templates/chat-detail.html',
-    //       controller: 'ChatDetailCtrl'
-    //     }
-    //   }
-    // })
 
   .state('tab.friends', {
     url: '/friends',

@@ -6,5 +6,5 @@ angular.module('omw')
 MapCtrl.$inject = [];
 
 function MapCtrl() {
-	console.log('home ctrl');
+
 }

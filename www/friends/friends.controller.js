@@ -6,5 +6,5 @@ angular.module('omw')
 FriendsCtrl.$inject = [];
 
 function FriendsCtrl() {
-	console.log('home ctrl');
+
 }
