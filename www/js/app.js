@@ -18,8 +18,14 @@ var app = angular.module('omw', ['ionic'])
 
   $stateProvider
 
+  .state('/', {
+    url: '/',
+    templateUrl: 'templates/main.html',
+    controller: 'MainCtrl as main'
+  })
+
   // setup an abstract state for the tabs directive
-    .state('tab', {
+  .state('tab', {
     url: "/tab",
     abstract: true,
     templateUrl: "templates/tabs.html"
@@ -68,6 +74,6 @@ var app = angular.module('omw', ['ionic'])
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/home');
+  $urlRouterProvider.otherwise('/');
 
 });
