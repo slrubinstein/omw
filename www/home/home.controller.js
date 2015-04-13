@@ -2,13 +2,13 @@
 
 app.controller('HomeCtrl', HomeCtrl);
 
-HomeCtrl.$inject = ['dataService'];
+HomeCtrl.$inject = ['dataService', 'userService'];
 
-function HomeCtrl(dataService) {
+function HomeCtrl(dataService, userService) {
 	var vm = this;
 
 	vm.omws = [];
-
+	vm.cookie = localStorage.getItem('cookie');
 	// activate();
 	fakeData();
 

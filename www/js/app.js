@@ -18,10 +18,10 @@ var app = angular.module('omw', ['ionic'])
 
   $stateProvider
 
-  .state('/', {
-    url: '/',
-    templateUrl: 'templates/main.html',
-    controller: 'MainCtrl as main'
+  .state('login', {
+    url: '/login',
+    templateUrl: 'login/login.html',
+    controller: 'LoginCtrl as login'
   })
 
   // setup an abstract state for the tabs directive
@@ -74,6 +74,6 @@ var app = angular.module('omw', ['ionic'])
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/login');
 
 });
