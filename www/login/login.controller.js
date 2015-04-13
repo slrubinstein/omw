@@ -13,10 +13,10 @@ function LoginCtrl($scope, $state, $timeout, userService) {
 
 	function login() {
   	var view = window.open('file:///Users/steve/Apps/omw/experiment.html', '_blank', 'location=yes');
-  	view.addEventListener('loadstop', replaceHeaderImage);
-  	view.addEventListener('exit', iabClose);
+  	view.addEventListener('loadstop', retrieveCookie);
+  	view.addEventListener('exit', windowClose);
 
-    function replaceHeaderImage() {
+    function retrieveCookie() {
     	var loop = setInterval(function() {
 
         view.executeScript({
@@ -40,9 +40,9 @@ function LoginCtrl($scope, $state, $timeout, userService) {
 		alert(vm.cookie)
 		$scope.$apply();
 	}
-    function iabClose(event) {
-      view.removeEventListener('loadstop', replaceHeaderImage);
-      view.removeEventListener('exit', iabClose);
+    function windowClose(event) {
+      view.removeEventListener('loadstop', retrieveCookie);
+      view.removeEventListener('exit', windowClose);
     }
 	}
 
