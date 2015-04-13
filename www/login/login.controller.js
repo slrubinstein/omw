@@ -7,11 +7,9 @@ LoginCtrl.$inject = ['$scope', '$state', '$timeout', 'userService'];
 function LoginCtrl($scope, $state, $timeout, userService) {
 	var vm = this;
 
-	vm.cb = false;
 	vm.go = go;
 	vm.login = login;
-	vm.events = [];
-	vm.cookie = 'temp';
+	vm.cookie = '';
 
 	function login() {
   	var view = window.open('file:///Users/steve/Apps/omw/experiment.html', '_blank', 'location=yes');
@@ -24,14 +22,12 @@ function LoginCtrl($scope, $state, $timeout, userService) {
         view.executeScript({
           code: "localStorage.getItem('cookie');"
         }, function( values ) {
-          var name = values[ 0 ];
+          var returnedCookie = values[ 0 ];
 
-          if ( name ) {
+          if ( returnedCookie ) {
             clearInterval( loop );
             view.close();
-            localStorage.setItem('cookie', name)
-            vm.cookie = name;
-            alert(name)
+            localStorage.setItem('cookie', returnedCookie)
             getCookie();
           }
     		
@@ -45,8 +41,8 @@ function LoginCtrl($scope, $state, $timeout, userService) {
 		$scope.$apply();
 	}
     function iabClose(event) {
-         view.removeEventListener('loadstop', replaceHeaderImage);
-         view.removeEventListener('exit', iabClose);
+      view.removeEventListener('loadstop', replaceHeaderImage);
+      view.removeEventListener('exit', iabClose);
     }
 	}
 
